@@ -62,9 +62,9 @@ make LIBS="-lncurses -lX11 -L/usr/X11R6/lib"
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{bin,usr/{bin,man/man1,lib/elvis}}
 
-install -s elvis	$RPM_BUILD_ROOT/usr/bin
+install -s elvis	$RPM_BUILD_ROOT%{_bindir}
 install -s elvis.static	$RPM_BUILD_ROOT/bin/vi
-install -s ref		$RPM_BUILD_ROOT/usr/bin/
+install -s ref		$RPM_BUILD_ROOT%{_bindir}/
 install lib/ref.man	$RPM_BUILD_ROOT%{_mandir}/man1
 
 rm -f	lib/*.man
@@ -80,8 +80,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {license,BUGS}.gz README.html
-%attr(755,root,root) /usr/bin/elvis
-%attr(755,root,root) /usr/bin/ref
+%attr(755,root,root) %{_bindir}/elvis
+%attr(755,root,root) %{_bindir}/ref
 %{_mandir}/man1/*
 %{_libdir}/elvis
 
