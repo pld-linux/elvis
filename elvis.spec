@@ -2,8 +2,8 @@ Summary:	Elvis is a clone of vi/ex
 Summary(pl):	Elvis jest klonem edytora vi
 Name:		elvis
 Version:	2.2f
-Release:	2
-License:	Artistic License
+Release:	3
+License:	Artistic
 Group:		Applications/Editors
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
 BuildRequires:	ORBit-devel
@@ -74,14 +74,12 @@ rm -f	lib/*.man
 mv -f lib/license .
 install	lib/* $RPM_BUILD_ROOT%{_libdir}/elvis
 
-gzip -9nf license BUGS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz README.html
+%doc license BUGS README.html
 %attr(755,root,root) %{_bindir}/elvis
 %attr(755,root,root) %{_bindir}/ref
 %{_mandir}/man1/*
