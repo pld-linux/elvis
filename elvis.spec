@@ -65,13 +65,13 @@ install -d $RPM_BUILD_ROOT/{bin,usr/{bin,man/man1,lib/elvis}}
 install -s elvis	$RPM_BUILD_ROOT/usr/bin
 install -s elvis.static	$RPM_BUILD_ROOT/bin/vi
 install -s ref		$RPM_BUILD_ROOT/usr/bin/
-install lib/ref.man	$RPM_BUILD_ROOT/usr/man/man1
+install lib/ref.man	$RPM_BUILD_ROOT%{_mandir}/man1
 
 rm -f	lib/*.man
 mv lib/license .
 install	lib/*		$RPM_BUILD_ROOT/usr/lib/elvis
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 	license BUGS
 
 %clean
@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {license,BUGS}.gz README.html
 %attr(755,root,root) /usr/bin/elvis
 %attr(755,root,root) /usr/bin/ref
-/usr/man/man1/*
+%{_mandir}/man1/*
 /usr/lib/elvis
 
 %files static
