@@ -41,7 +41,7 @@ CC="cc $RPM_OPT_FLAGS" LDFLAGS="-static -s" \
 	--prefix=/usr \
 	--without-x \
 	linux
-make LIBS="-static -lncurses"
+make LIBS="-lncurses"
 mv elvis elvis.static
 
 make clean
@@ -51,17 +51,19 @@ CC="cc $RPM_OPT_FLAGS" LDFLAGS="-s" \
 	--prefix=/usr \
 	--with-x \
 	linux
-make LIBS=" -lX11 -lncurses"
+make LIBS="-lncurses -lX11 -L/usr/X11R6/lib"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/{bin,man/man1,lib/elvis}
+install -d $RPM_BUILD_ROOT/{bin,usr/{bin,man/man1,lib/elvis}}
 
 install -s elvis	$RPM_BUILD_ROOT/usr/bin
 install -s elvis.static	$RPM_BUILD_ROOT/bin/vi
 install -s ref		$RPM_BUILD_ROOT/usr/bin/
+install lib/ref.man	$RPM_BUILD_ROOT/usr/man/man1
 
-rm -f	lib/*man
+rm -f	lib/*.man
+mv lib/license .
 install	lib/*		$RPM_BUILD_ROOT/usr/lib/elvis
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/* \
@@ -72,10 +74,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {lib/license,BUGS}.gz README.html
+%doc {license,BUGS}.gz README.html
 %attr(755,root,root) /usr/bin/elvis
 %attr(755,root,root) /usr/bin/ref
-%attr(755,root,root) /bin/vi
+/usr/man/man1/*
 /usr/lib/elvis
 
 %files static
