@@ -7,8 +7,8 @@ Copyright:	Artistic License
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
 Source:		ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
-BuildPrereq:	ncurses-devel
-BuildPrereq:	XFree86-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	elvis-X11
 
