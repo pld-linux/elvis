@@ -7,7 +7,10 @@ Copyright:	Artistic License
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
 Source:		ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
+BuildPrereq:	ncurses-devel
+BuildPrereq:	XFree86-devel
 BuildRoot:   	/tmp/%{name}-%{version}-root
+Obsoletes:	elvis-X11
 
 %description
 Vi clone.
@@ -67,7 +70,7 @@ mv lib/license .
 install	lib/*		$RPM_BUILD_ROOT/usr/lib/elvis
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/* \
-	lib/license BUGS
+	license BUGS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -84,6 +87,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /bin/vi
 
 %changelog
-* Tue Apr 27 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+* Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.1-1]
+- added BuildPrereq rules,
+- added "Obsoletes: elvis-X11" (on contrib is avalaible this package).
+
+* Tue Apr 27 1999 Micha³ Kuratczyk <kura@pld.org.pl>
 - built for PLD
