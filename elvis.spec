@@ -5,9 +5,6 @@ Version:	2.2f
 Release:	1
 License:	Artistic License
 Group:		Applications/Editors
-Group(de):	Applikationen/Editors
-Group(pl):	Aplikacje/Edytory
-Group(pt):	Aplicações/Editores
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
 BuildRequires:	ORBit-devel
 BuildRequires:	XFree86-devel
@@ -30,9 +27,6 @@ posiada bogate mo¿liwo¶ci i bardzo dobr± dokumentacjê.
 Summary:	Static elvis
 Summary(pl):	elvis skompilowany statycznie
 Group:		Applications/Editors
-Group(de):	Applikationen/Editors
-Group(pl):	Aplikacje/Edytory
-Group(pt):	Aplicações/Editores
 Provides:	vi
 Obsoletes:	vi
 
