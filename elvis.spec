@@ -10,7 +10,7 @@ Source:		ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	ncurses-static
 BuildRequires:	XFree86-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	elvis-X11
 
 %define		_libdir %{_datadir}
