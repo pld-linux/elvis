@@ -12,6 +12,8 @@ BuildPrereq:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	elvis-X11
 
+%define		_libdir %{_datadir}
+
 %description
 Vi clone.
 
@@ -39,37 +41,33 @@ przydaje siê przy awarii systemu.
 %setup -q
 
 %build
-CC="cc $RPM_OPT_FLAGS" LDFLAGS="-static -s" \
-./configure \
-	--prefix=/usr \
-	--without-x \
-	%{_target_platform}
+CC="cc $RPM_OPT_FLAGS"; export CC
+LDFLAGS="-static -s"; export LDFLAGS
+%configure \
+	--without-x
 	
 make LIBS="-lncurses"
 mv elvis elvis.static
 
 make clean
 
-CC="cc $RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
-	--prefix=/usr \
-	--with-x \
-	%{_target_platform}
+LDFLAGS="-s";export LDFLAGS
+%configure \
+	--with-x
 	
 make LIBS="-lncurses -lX11 -L/usr/X11R6/lib"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{bin,usr/{bin,share/man/man1,lib/elvis}}
+install -d $RPM_BUILD_ROOT/{bin,%{_bindir},%{_mandir}/man1,%{_datadir}/elvis}
 
-install -s elvis	$RPM_BUILD_ROOT%{_bindir}
-install -s elvis.static	$RPM_BUILD_ROOT/bin/vi
-install -s ref		$RPM_BUILD_ROOT%{_bindir}/
-install lib/ref.man	$RPM_BUILD_ROOT%{_mandir}/man1
+install -s elvis ref $RPM_BUILD_ROOT%{_bindir}
+install -s elvis.static $RPM_BUILD_ROOT/bin/vi
+install lib/ref.man $RPM_BUILD_ROOT%{_mandir}/man1
 
 rm -f	lib/*.man
 mv lib/license .
-install	lib/*		$RPM_BUILD_ROOT%{_libdir}/elvis
+install	lib/* $RPM_BUILD_ROOT%{_libdir}/elvis
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 	license BUGS
@@ -99,4 +97,4 @@ rm -rf $RPM_BUILD_ROOT
 - added "Obsoletes: elvis-X11" (on contrib is avalaible this package).
 
 * Tue Apr 27 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-- built for PLD
+- built for PLD.
