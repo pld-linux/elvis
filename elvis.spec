@@ -5,8 +5,9 @@ Version:	2.2i
 Release:	1
 License:	Artistic (see LICENSE)
 Group:		Applications/Editors
-Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
 # Source0-md5:	dd53b90614686692d68d27e0223be770
+URL:		http://elvis.vi-editor.org/
 BuildRequires:	ORBit-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	ncurses-devel >= 5.0
@@ -51,7 +52,8 @@ LDFLAGS="-static %{rpmldflags}"
 	--without-x \
 	--datadir=%{_datadir}/elvis
 
-%{__make} LIBS="-ltinfo"
+%{__make} \
+	LIBS="-ltinfo"
 mv -f elvis elvis.static
 
 %{__make} clean
@@ -61,11 +63,12 @@ LDFLAGS="%{rpmldflags}"
 	--with-x \
 	--datadir=%{_datadir}/elvis
 
-%{__make} LIBS="-ltinfo -lX11 -L/usr/X11R6/lib"
+%{__make} \
+	LIBS="-ltinfo -lX11 -L/usr/X11R6/lib"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{bin,%{_bindir},%{_mandir}/man1,%{_datadir}/elvis/themes}
+install -d $RPM_BUILD_ROOT{/bin,%{_bindir},%{_mandir}/man1,%{_datadir}/elvis/themes}
 
 install elvis ref $RPM_BUILD_ROOT%{_bindir}
 install elvis.static $RPM_BUILD_ROOT/bin/vi
