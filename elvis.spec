@@ -1,13 +1,13 @@
 Summary:	Elvis is a clone of vi/ex
 Summary(pl):	Elvis jest klonem edytora vi
 Name:		elvis
-Version:	2.2a
-Release:	6
+Version:	2.2b
+Release:	1
 Copyright:	Artistic License
 Group:		Applications/Editors
 Group(pt):	X11/Aplicações/Editores
 Group(pl):	Aplikacje/Edytory
-Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	ncurses-static
 BuildRequires:	XFree86-devel
