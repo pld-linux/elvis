@@ -6,6 +6,7 @@ Release:	1
 License:	Artistic (see LICENSE)
 Group:		Applications/Editors
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
+# Source0-md5:	bb2720fe0b51c72336ff6fcf9920d71c
 BuildRequires:	ORBit-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	ncurses-devel >= 5.0
