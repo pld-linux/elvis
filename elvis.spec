@@ -43,7 +43,8 @@ CC="cc $RPM_OPT_FLAGS" LDFLAGS="-static -s" \
 ./configure \
 	--prefix=/usr \
 	--without-x \
-	linux
+	%{_target}
+	
 make LIBS="-lncurses"
 mv elvis elvis.static
 
@@ -53,7 +54,8 @@ CC="cc $RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr \
 	--with-x \
-	linux
+	%{_target}
+	
 make LIBS="-lncurses -lX11 -L/usr/X11R6/lib"
 
 %install
