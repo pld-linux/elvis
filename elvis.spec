@@ -1,8 +1,8 @@
 Summary:	Elvis is a clone of vi/ex
 Summary(pl):	Elvis jest klonem edytora vi
 Name:		elvis
-Version:	2.2f
-Release:	3
+Version:	2.2h
+Release:	1
 License:	Artistic (see LICENSE)
 Group:		Applications/Editors
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
@@ -64,7 +64,7 @@ LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{bin,%{_bindir},%{_mandir}/man1,%{_datadir}/elvis}
+install -d $RPM_BUILD_ROOT/{bin,%{_bindir},%{_mandir}/man1,%{_datadir}/elvis/themes}
 
 install elvis ref $RPM_BUILD_ROOT%{_bindir}
 install elvis.static $RPM_BUILD_ROOT/bin/vi
@@ -72,7 +72,8 @@ install lib/*.man $RPM_BUILD_ROOT%{_mandir}/man1
 
 rm -f	lib/*.man
 mv -f lib/license LICENSE
-install	lib/* $RPM_BUILD_ROOT%{_libdir}/elvis
+install	lib/*.* $RPM_BUILD_ROOT%{_libdir}/elvis
+install lib/themes/* $RPM_BUILD_ROOT%{_libdir}/elvis/themes
 
 %clean
 rm -rf $RPM_BUILD_ROOT
