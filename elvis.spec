@@ -50,7 +50,7 @@ LDFLAGS="-static %{rpmldflags}"
 %configure \
 	--without-x \
 	--datadir=%{_datadir}/elvis
-	
+
 %{__make} LIBS="-ltinfo"
 mv -f elvis elvis.static
 
