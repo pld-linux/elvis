@@ -50,17 +50,17 @@ LDFLAGS="-static -s"; export LDFLAGS
 	--without-x \
 	--datadir=%{_datadir}/elvis
 	
-make LIBS="-ltinfo"
+%{__make} LIBS="-ltinfo"
 mv elvis elvis.static
 
-make clean
+%{__make} clean
 
 LDFLAGS="-s";export LDFLAGS
 %configure \
 	--with-x \
 	--datadir=%{_datadir}/elvis
 
-make LIBS="-ltinfo -lX11 -L/usr/X11R6/lib"
+%{__make} LIBS="-ltinfo -lX11 -L/usr/X11R6/lib"
 
 %install
 rm -rf $RPM_BUILD_ROOT
