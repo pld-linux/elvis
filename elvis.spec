@@ -2,7 +2,7 @@ Summary:	Elvis is a clone of vi/ex
 Summary(pl):	Elvis jest klonem edytora vi
 Name:		elvis
 Version:	2.1
-Release:	1
+Release:	2
 Copyright:	Artistic License
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
@@ -60,7 +60,7 @@ make LIBS="-lncurses -lX11 -L/usr/X11R6/lib"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{bin,usr/{bin,man/man1,lib/elvis}}
+install -d $RPM_BUILD_ROOT/{bin,usr/{bin,share/man/man1,lib/elvis}}
 
 install -s elvis	$RPM_BUILD_ROOT%{_bindir}
 install -s elvis.static	$RPM_BUILD_ROOT/bin/vi
@@ -89,6 +89,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /bin/vi
 
 %changelog
+* Mon Jun 07 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [2.1-2]
+- spec cleanup
+
 * Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.1-1]
 - added BuildPrereq rules,
