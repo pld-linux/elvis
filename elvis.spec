@@ -3,7 +3,7 @@ Summary(pl):	Elvis jest klonem edytora vi
 Name:		elvis
 Version:	2.2c
 Release:	1
-Copyright:	Artistic License
+License:	Artistic License
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
@@ -83,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {license,BUGS}.gz README.html
+%doc *.gz README.html
 %attr(755,root,root) %{_bindir}/elvis
 %attr(755,root,root) %{_bindir}/ref
 %{_mandir}/man1/*
