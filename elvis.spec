@@ -5,8 +5,9 @@ Version:	2.2c
 Release:	1
 Copyright:	Artistic License
 Group:		Applications/Editors
-Group(pt):	X11/Aplicações/Editores
+Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
+Group(pt):	Aplicações/Editores
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	ncurses-static
@@ -14,7 +15,7 @@ BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	elvis-X11
 
-%define		_libdir %{_datadir}
+%define		_libdir		%{_datadir}
 
 %description
 Vi clone.
@@ -27,8 +28,9 @@ posiada bogate mo¿liwo¶ci i bardzo dobr± dokumentacjê.
 Summary:	Static elvis
 Summary(pl):	elvis skompilowany statycznie
 Group:		Applications/Editors
-Group(pt):	X11/Aplicações/Editores
+Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
+Group(pt):	Aplicações/Editores
 Provides:	vi
 Obsoletes:	vi
 
@@ -44,18 +46,18 @@ który przydaje siê przy awarii systemu.
 %setup -q
 
 %build
-CC="cc $RPM_OPT_FLAGS"; export CC
-LDFLAGS="-static -s"; export LDFLAGS
+CC="%{__cc} %{rpmcflags}"; export CC
+LDFLAGS="-static %{rpmldflags}"
 %configure \
 	--without-x \
 	--datadir=%{_datadir}/elvis
 	
 %{__make} LIBS="-ltinfo"
-mv elvis elvis.static
+mv -f elvis elvis.static
 
 %{__make} clean
 
-LDFLAGS="-s";export LDFLAGS
+LDFLAGS="%{rpmldflags}"
 %configure \
 	--with-x \
 	--datadir=%{_datadir}/elvis
@@ -66,16 +68,15 @@ LDFLAGS="-s";export LDFLAGS
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{bin,%{_bindir},%{_mandir}/man1,%{_datadir}/elvis}
 
-install -s elvis ref $RPM_BUILD_ROOT%{_bindir}
-install -s elvis.static $RPM_BUILD_ROOT/bin/vi
+install elvis ref $RPM_BUILD_ROOT%{_bindir}
+install elvis.static $RPM_BUILD_ROOT/bin/vi
 install lib/*.man $RPM_BUILD_ROOT%{_mandir}/man1
 
 rm -f	lib/*.man
-mv lib/license .
+mv -f lib/license .
 install	lib/* $RPM_BUILD_ROOT%{_libdir}/elvis
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	license BUGS
+gzip -9nf license BUGS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
