@@ -38,7 +38,7 @@ The classic unix /bin/vi - small, statically linked editor which is
 useful as a rescue tool.
 
 %description static -l pl
-Klasyczny unixowy /bin/vi - ma³y, skompilowany statycznie edytor,
+Klasyczny uniksowy /bin/vi - ma³y, skompilowany statycznie edytor,
 który przydaje siê przy awarii systemu.
 
 %prep
