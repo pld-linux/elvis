@@ -85,16 +85,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %attr(755,root,root) /bin/vi
-
-%changelog
-* Mon Jun 07 1999 Jan Rêkorajski <baggins@pld.org.pl>
-  [2.1-2]
-- spec cleanup
-
-* Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.1-1]
-- added BuildPrereq rules,
-- added "Obsoletes: elvis-X11" (on contrib is avalaible this package).
-
-* Tue Apr 27 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-- built for PLD.
