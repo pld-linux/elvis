@@ -1,7 +1,7 @@
 Summary:	Elvis is a clone of vi/ex
 Summary(pl):	Elvis jest klonem edytora vi
 Name:		elvis
-Version:	2.2b
+Version:	2.2c
 Release:	1
 Copyright:	Artistic License
 Group:		Applications/Editors
