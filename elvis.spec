@@ -9,7 +9,7 @@ Group:		Applications/Editors
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
 # Source0-md5:	6831b8df3e4a530395e66c2889783752
 URL:		http://elvis.vi-editor.org/
-BuildRequires:	X11-devel
+BuildRequires:	XFree86-devel
 BuildRequires:	glibc-static
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	ncurses-static
