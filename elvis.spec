@@ -61,7 +61,7 @@ mv -f elvis elvis.static
 	--datadir=%{_datadir}/elvis
 
 %{__make} \
-	LIBS="%{rpmldflags} -ltinfo -lX11 -L/usr/X11R6/lib"
+	LIBS="%{rpmldflags} -ltinfo -lX11 -L/usr/X11R6/%{_lib}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
