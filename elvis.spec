@@ -69,7 +69,7 @@ install lib/ref.man	$RPM_BUILD_ROOT%{_mandir}/man1
 
 rm -f	lib/*.man
 mv lib/license .
-install	lib/*		$RPM_BUILD_ROOT/usr/lib/elvis
+install	lib/*		$RPM_BUILD_ROOT%{_libdir}/elvis
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 	license BUGS
@@ -83,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/elvis
 %attr(755,root,root) /usr/bin/ref
 %{_mandir}/man1/*
-/usr/lib/elvis
+%{_libdir}/elvis
 
 %files static
 %attr(755,root,root) /bin/vi
