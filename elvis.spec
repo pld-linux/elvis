@@ -2,7 +2,7 @@ Summary:	Elvis is a clone of vi/ex
 Summary(pl):	Elvis jest klonem edytora vi
 Name:		elvis
 Version:	2.2f
-Release:	1
+Release:	2
 License:	Artistic License
 Group:		Applications/Editors
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/unreleased/%{name}-%{version}.tar.gz
@@ -29,9 +29,11 @@ Summary(pl):	elvis skompilowany statycznie
 Group:		Applications/Editors
 Provides:	vi
 Obsoletes:	vi
+Obsoletes:	vim-static
+Obsoletes:	nvi
 
 %description static
-The classic unix /bin/vi - small, static compiled editor which is
+The classic unix /bin/vi - small, statically linked editor which is
 useful as a rescue tool.
 
 %description static -l pl
