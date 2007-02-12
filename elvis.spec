@@ -1,5 +1,5 @@
 Summary:	Elvis is a clone of vi/ex
-Summary(pl.UTF-8):   Elvis jest klonem edytora vi
+Summary(pl.UTF-8):	Elvis jest klonem edytora vi
 Name:		elvis
 Version:	2.2_0
 Release:	2
@@ -26,7 +26,7 @@ posiada bogate możliwości i bardzo dobrą dokumentację.
 
 %package static
 Summary:	Static elvis
-Summary(pl.UTF-8):   elvis skompilowany statycznie
+Summary(pl.UTF-8):	elvis skompilowany statycznie
 Group:		Applications/Editors
 Provides:	vi
 Obsoletes:	vi
