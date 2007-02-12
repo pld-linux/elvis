@@ -1,5 +1,5 @@
 Summary:	Elvis is a clone of vi/ex
-Summary(pl):	Elvis jest klonem edytora vi
+Summary(pl.UTF-8):   Elvis jest klonem edytora vi
 Name:		elvis
 Version:	2.2_0
 Release:	2
@@ -20,13 +20,13 @@ Obsoletes:	elvis-X11
 Elvis is one of the most popular Vi clones. Its swift, well
 documented and has many features.
 
-%description -l pl
-Elvis to jeden z popularniejszych klonów edytora vi. Jest szybki,
-posiada bogate mo¿liwo¶ci i bardzo dobr± dokumentacjê.
+%description -l pl.UTF-8
+Elvis to jeden z popularniejszych klonÃ³w edytora vi. Jest szybki,
+posiada bogate moÅ¼liwoÅ›ci i bardzo dobrÄ… dokumentacjÄ™.
 
 %package static
 Summary:	Static elvis
-Summary(pl):	elvis skompilowany statycznie
+Summary(pl.UTF-8):   elvis skompilowany statycznie
 Group:		Applications/Editors
 Provides:	vi
 Obsoletes:	vi
@@ -37,9 +37,9 @@ Obsoletes:	nvi
 The classic unix /bin/vi - small, statically linked editor which is
 useful as a rescue tool.
 
-%description static -l pl
-Klasyczny uniksowy /bin/vi - ma³y, skompilowany statycznie edytor,
-który przydaje siê przy awarii systemu.
+%description static -l pl.UTF-8
+Klasyczny uniksowy /bin/vi - maÅ‚y, skompilowany statycznie edytor,
+ktÃ³ry przydaje siÄ™ przy awarii systemu.
 
 %prep
 %setup -q
