@@ -9,12 +9,14 @@ Group:		Applications/Editors
 Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
 # Source0-md5:	6831b8df3e4a530395e66c2889783752
 URL:		http://elvis.vi-editor.org/
-BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	glibc-static
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	ncurses-static
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXft-devel
+BuildRequires:	xorg-lib-libXpm-devel
 Obsoletes:	elvis-X11
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Elvis is one of the most popular Vi clones. Its swift, well
