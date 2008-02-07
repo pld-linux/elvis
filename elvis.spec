@@ -36,7 +36,7 @@ Obsoletes:	vim-static
 Obsoletes:	nvi
 
 %description static
-The classic unix /bin/vi - small, statically linked editor which is
+The classic Unix /bin/vi - small, statically linked editor which is
 useful as a rescue tool.
 
 %description static -l pl.UTF-8
