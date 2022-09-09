@@ -6,9 +6,9 @@ Release:	2
 Epoch:		1
 License:	Artistic (see LICENSE.html)
 Group:		Applications/Editors
-Source0:	ftp://ftp.cs.pdx.edu/pub/elvis/%{name}-%{version}.tar.gz
+Source0:	http://www.the-little-red-haired-girl.org/pub/elvis/%{name}-%{version}.tar.gz
 # Source0-md5:	6831b8df3e4a530395e66c2889783752
-URL:		http://elvis.vi-editor.org/
+URL:		http://elvis.the-little-red-haired-girl.org/
 BuildRequires:	glibc-static
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	ncurses-static
@@ -54,7 +54,8 @@ CC="%{__cc} %{rpmcflags}"; export CC
 
 %{__make} \
 	LIBS="%{rpmldflags} -static -ltinfo"
-mv -f elvis elvis.static
+
+%{__mv} elvis elvis.static
 
 %{__make} clean
 
@@ -78,7 +79,7 @@ done
 
 cp -rf data/* $RPM_BUILD_ROOT%{_datadir}/elvis
 
-mv -f doc/license.html LICENSE.html
+%{__mv} doc/license.html LICENSE.html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
